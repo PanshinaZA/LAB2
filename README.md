@@ -13,7 +13,9 @@
 6. Доступ к сети Интернет.
 
 ## Вариант 17. Задача:
-1. HTTP-анализ. Анализ ответа API randomuser.me/api для получения случайного пользователя.
+1. HTTP-анализ. Анализ ответа API randomuser.me/api для получения случайного пользователя. Архитектура решения:
+<img width="691" height="100" alt="lb2" src="https://github.com/user-attachments/assets/fcec59d8-29c0-43aa-89e9-d5c447a66fe3" />
+
 2. Разработка REST API. API для "Расписание занятий" (сущность: id, subject, teacher, time).
 3. Настройка Nginx. Настроить Nginx как обратный прокси для Flask API.
 ## Ход работы
