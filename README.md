@@ -103,7 +103,7 @@ def create_lesson():
     global next_id
     data = request.get_json()
 
-    if not 
+    if not data:
         return jsonify({"error": "Тело запроса должно быть в формате JSON"}), 400
     if not all(k in data for k in ("subject", "teacher", "time")):
         return jsonify({"error": "Требуются поля: subject, teacher, time"}), 400
