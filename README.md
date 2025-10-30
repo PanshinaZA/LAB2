@@ -60,12 +60,6 @@ curl -s https://randomuser.me/api/ | jq
 
 <img width="782" height="458" alt="image" src="https://github.com/user-attachments/assets/01917590-75bf-4da8-948c-80963c9b2988" />
 
-Следующий запрос покажет все заголовки и код ответа:
-```
-curl -i https://randomuser.me/api/ | jq
-```
-<img width="1184" height="411" alt="image" src="https://github.com/user-attachments/assets/fd7a8db4-89b6-44c9-b029-eb1253a1145d" />
-
 3. Далее произведем установку и базовую настройку Nginx и убедимся, что статус active (running), с помощью команды:
 ```
 sudo systemctl status nginx
