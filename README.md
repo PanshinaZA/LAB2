@@ -20,6 +20,8 @@
 <img width="661" height="131" alt="lb22 (1)" src="https://github.com/user-attachments/assets/ff82d557-5265-43b8-972f-a3ae72ed91bb" />
 
 3. Настройка Nginx. Настроить Nginx как обратный прокси для Flask API.
+<img width="681" height="141" alt="lb22 (2)" src="https://github.com/user-attachments/assets/76d47463-f8a5-4870-bfd9-48b770fa76c2" />
+
 ## Ход работы
 1. Первоначально создадим директорию проекта и перейдем в нее, а также установим утилиту для работы с веб-ресурсами через сетевые протоколы:
 
