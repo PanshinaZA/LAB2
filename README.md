@@ -18,7 +18,7 @@
 3. Настройка Nginx. Настроить Nginx как обратный прокси для Flask API.
 ## Ход работы
 1. Первоначально создадим диреекторию проекта и перейдем в нее, а также при помощи команды sudo apt install telnet curl -y установим утилиту для работы с веб-ресурсами через сетевые протоколы:
-<img width="483" height="36" alt="image" src="https://github.com/user-attachments/assets/5ad10e09-a61a-4db5-8766-9389df72925a" />
+<img width="787" height="500" alt="image" src="https://github.com/user-attachments/assets/261bb0a6-851a-41c1-bc5b-2c7fdf809ae1" />
 
 ## Выводы
 В ходе выполнения лабораторной работы 
