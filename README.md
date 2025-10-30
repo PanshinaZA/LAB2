@@ -128,16 +128,21 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
 ```
 <img width="1196" height="466" alt="image" src="https://github.com/user-attachments/assets/6c7a274e-c663-4907-8194-76655067faea" />
+
 8. Запустим Flask приложение при помощи команды:
 ```
 python3 app.py
 ```
+
 <img width="986" height="215" alt="image" src="https://github.com/user-attachments/assets/462d59cd-c833-49ac-b2d5-101c189f74d2" />
+
 9. Проверим работоспособность приложения путем вывода расписания занятий с помощью команды:
 ```
 curl -s http://127.0.0.1:5000/api/lessons | jq
 ```
+
 <img width="1201" height="476" alt="image" src="https://github.com/user-attachments/assets/194d624e-8635-46d3-9fef-2fee5f189200" />
+
 10. Теперь настроим Nginx так, чтобы все запросы, приходящие на http://localhost/api/, перенаправлялись на Flask-приложение. Откроем конфигурационный файл при помощи команды:
 ```
 sudo nano /etc/nginx/sites-available/default
@@ -152,6 +157,7 @@ location /api/ {
     proxy_set_header X-Forwarded-Proto $scheme;
 }
 ```
+
 <img width="1086" height="175" alt="image" src="https://github.com/user-attachments/assets/3268c2a4-35d1-479f-9fe0-3515ec879e7d" />
 
 11. Проверим синтаксис конфигурации и перезапустим Nginx:
