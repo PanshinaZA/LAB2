@@ -17,6 +17,8 @@
 <img width="691" height="100" alt="lb2" src="https://github.com/user-attachments/assets/fcec59d8-29c0-43aa-89e9-d5c447a66fe3" />
 
 2. Разработка REST API. API для "Расписание занятий" (сущность: id, subject, teacher, time).
+<img width="661" height="131" alt="lb22 (1)" src="https://github.com/user-attachments/assets/ff82d557-5265-43b8-972f-a3ae72ed91bb" />
+
 3. Настройка Nginx. Настроить Nginx как обратный прокси для Flask API.
 ## Ход работы
 1. Первоначально создадим директорию проекта и перейдем в нее, а также установим утилиту для работы с веб-ресурсами через сетевые протоколы:
