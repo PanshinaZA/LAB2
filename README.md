@@ -25,7 +25,7 @@
 ```
 curl https://randomuser.me/api/
 ```
-Она выведет информацию об...
+Она выведет сырой JSON-ответ, содержащий информацию о случайном пользователе: пол, имя, фамилия, адрес, email, дата рождения, фото и т.д.
 
 <img width="1176" height="182" alt="image" src="https://github.com/user-attachments/assets/ecd14449-2530-40bb-ba97-e290d134ef9c" />
 
@@ -33,13 +33,17 @@ curl https://randomuser.me/api/
 ```
 curl -v https://randomuser.me/api/
 ```
-Она выведет подробную информацию о HTTP-запросе и ответе:
+Она выведет детали HTTP-запроса и ответа, чтобы понять, как работает протокол:
 
 <img width="701" height="504" alt="image" src="https://github.com/user-attachments/assets/43fd581b-866c-4e0b-8862-e0946bdab3a5" />
 <img width="1158" height="525" alt="image" src="https://github.com/user-attachments/assets/9c70536c-e87a-4824-96c3-abcd91a3684c" />
 <img width="1155" height="48" alt="image" src="https://github.com/user-attachments/assets/77e703ef-b052-4890-ae1d-87d0456cd423" />
 
-А также выведем запросом информация в формате json:
+Запрос: Отправляется метод GET на путь /api/ по протоколу HTTP/2. Клиент (curl) указывает себя в заголовке User-Agent.
+Ответ: Сервер возвращает код 200 OK, что означает успешное выполнение запроса. Заголовок Content-Type: application/json говорит, что тело ответа — это JSON. Заголовок Server: cloudflare указывает, что сервер защищен и ускорен через CDN Cloudflare.
+Безопасность: Используется шифрование TLSv1.3, что гарантирует безопасную передачу данных.
+
+А также выведем отформатированный JSON с отступами, где легко читать структуру объектов и массивов:
 ```
 curl -s https://randomuser.me/api/ | jq
 ```
