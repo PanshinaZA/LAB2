@@ -135,8 +135,6 @@ def create_lesson():
     next_id += 1
     return jsonify(new_lesson), 201
 
-# === НОВЫЕ ЭНДПОИНТЫ ===
-
 @app.route('/api/lessons/<int:lesson_id>', methods=['PUT'])
 def update_lesson(lesson_id):
     """Обновить занятие по ID"""
