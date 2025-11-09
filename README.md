@@ -100,6 +100,10 @@ lessons = [
 ]
 next_id = 3
 
+def find_lesson_by_id(lesson_id):
+    """Вспомогательная функция: поиск занятия по id"""
+    return next((lesson for lesson in lessons if lesson["id"] == lesson_id), None)
+
 @app.route('/api/lessons', methods=['GET'])
 def get_lessons():
     """Получить всё расписание"""
@@ -117,7 +121,6 @@ def create_lesson():
         return jsonify({"error": "Требуются поля: subject, teacher, time"}), 400
 
     try:
-        # Проверка корректности формата времени
         datetime.fromisoformat(data["time"].replace("Z", "+00:00"))
     except ValueError:
         return jsonify({"error": "Поле 'time' должно быть в формате ISO 8601"}), 400
@@ -131,6 +134,46 @@ def create_lesson():
     lessons.append(new_lesson)
     next_id += 1
     return jsonify(new_lesson), 201
+
+# === НОВЫЕ ЭНДПОИНТЫ ===
+
+@app.route('/api/lessons/<int:lesson_id>', methods=['PUT'])
+def update_lesson(lesson_id):
+    """Обновить занятие по ID"""
+    lesson = find_lesson_by_id(lesson_id)
+    if not lesson:
+        return jsonify({"error": f"Занятие с id={lesson_id} не найдено"}), 404
+
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "Тело запроса должно быть в формате JSON"}), 400
+
+    # Обновляем только переданные поля
+    allowed_fields = {"subject", "teacher", "time"}
+    for field in data:
+        if field not in allowed_fields:
+            return jsonify({"error": f"Недопустимое поле: {field}. Разрешены: {', '.join(allowed_fields)}"}), 400
+
+    # Валидация времени, если оно передано
+    if "time" in data:
+        try:
+            datetime.fromisoformat(data["time"].replace("Z", "+00:00"))
+        except ValueError:
+            return jsonify({"error": "Поле 'time' должно быть в формате ISO 8601"}), 400
+
+    # Обновляем объект
+    lesson.update(data)
+    return jsonify(lesson), 200
+
+@app.route('/api/lessons/<int:lesson_id>', methods=['DELETE'])
+def delete_lesson(lesson_id):
+    """Удалить занятие по ID"""
+    lesson = find_lesson_by_id(lesson_id)
+    if not lesson:
+        return jsonify({"error": f"Занятие с id={lesson_id} не найдено"}), 404
+
+    lessons.remove(lesson)
+    return jsonify({"message": f"Занятие с id={lesson_id} успешно удалено"}), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
